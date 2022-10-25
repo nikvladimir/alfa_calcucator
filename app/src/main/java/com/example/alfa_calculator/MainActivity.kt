@@ -2,15 +2,21 @@ package com.example.alfa_calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlin.android.synthetic.main.activity_main.*
+import android.os.PersistableBundle
+import com.example.alfa_calculator.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
+    lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
     }
 
-    fun setTextField(str: String) {
-        entered_text.append()
+    fun actionForViewInput(str: String) {
+        binding.textViewInput.append(str)
     }
+
 }
