@@ -47,7 +47,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun dropLast() {
-        binding.textViewInput.text = binding.textViewInput.text.dropLast(1)
+        if (binding.textViewInput.text.toString().isNotEmpty()) {
+            binding.textViewInput.text = binding.textViewInput.text.dropLast(1)
+            countResult()
+        }
     }
 
     private fun countResult() {

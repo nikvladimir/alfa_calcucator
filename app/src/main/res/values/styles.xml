@@ -8,18 +8,7 @@
 
         <item name="colorAccent">@color/white</item>
     </style>
-
-    <style name="ActionButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">#4E4E4E</item>
-        <item name="android:textSize">31sp</item>
-        <item name="android:textColor">#65A34E</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_margin">0.5dp</item>
-    </style>
-
+    
     <style name="MenuButton">
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
@@ -39,28 +28,4 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
     </style>
-
-    <style name="NumberButton">
-        <item name="android:layout_width">0dp</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:background">#4E4E4E</item>
-        <item name="android:textSize">31sp</item>
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_margin">0.5dp</item>
-    </style>
-
-<!--    <style name="Theme.App" parent="Theme.MaterialComponents">-->
-<!--        ...-->
-<!--        <item name="colorSecondary">@color/white</item>-->
-<!--        <item name="colorOnSecondary">@color/black</item>-->
-<!--        <item name="colorOnSurface">@color/purple_200</item>-->
-<!--        <item name="shapeAppearanceSmallComponent">@style/ShapeAppearance.App.SmallComponent</item>-->
-<!--    </style>-->
-
-<!--    <style name="ShapeAppearance.App.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">-->
-<!--        <item name="cornerFamily">cut</item>-->
-<!--        <item name="cornerSize">4dp</item>-->
-<!--    </style>-->
 </resources>

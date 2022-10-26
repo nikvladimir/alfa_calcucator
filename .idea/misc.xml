@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/android/alfa_calcucator/app/src/main/res/drawable/back.xml" value="0.128" />
         <entry key="..\:/android/alfa_calcucator/app/src/main/res/drawable/ic_backspace.xml" value="0.1175" />
-        <entry key="..\:/android/alfa_calcucator/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/android/alfa_calcucator/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
+        <entry key="..\:/android/alfa_calcucator/app/src/main/res/layout/activity_main.xml" value="0.21302083333333333" />
       </map>
     </option>
   </component>
