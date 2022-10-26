@@ -2,7 +2,9 @@ package com.example.alfa_calculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.example.alfa_calculator.databinding.ActivityMainBinding
+import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
@@ -22,7 +24,7 @@ class MainActivity : AppCompatActivity() {
         binding.btn7.setOnClickListener { actionForViewInput("7") }
         binding.btn8.setOnClickListener { actionForViewInput("8") }
         binding.btn9.setOnClickListener { actionForViewInput("9") }
-        binding.btnDot.setOnClickListener { actionForViewInput(",") }
+        binding.btnDot.setOnClickListener { actionForViewInput(".") }
 
         binding.btnOpenBracket.setOnClickListener { actionForViewInput("(") }
         binding.btnCloseBracket.setOnClickListener { actionForViewInput(")") }
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnHistory.setOnClickListener { showHistory() }
         binding.btnPlusMinus.setOnClickListener { changeSing() }
-        binding.btnEqual.setOnClickListener { countResult() }
+        binding.btnEqual.setOnClickListener { sendAnswer() }
         binding.btnDelete.setOnClickListener { dropLast() }
         binding.btnClear.setOnClickListener {
             binding.textViewInput.text = ""
@@ -44,6 +46,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun actionForViewInput(str: String) {
         binding.textViewInput.append(str)
+        countResult()
     }
 
     private fun dropLast() {
@@ -55,15 +58,36 @@ class MainActivity : AppCompatActivity() {
 
     private fun countResult() {
         if (binding.textViewInput.text == "")
-            binding.textViewResult.text = "you put nothing"
-        else binding.textViewResult.text = "will be answer"
+            binding.textViewResult.text = ""
+        else {
+            try {
+                val expression = ExpressionBuilder(binding.textViewInput.text.toString()).build()
+                val result = expression.evaluate()
+                val resultInLong = result.toLong()
+
+                if (result == resultInLong.toDouble())
+                    binding.textViewResult.text = resultInLong.toString()
+                else
+                    binding.textViewResult.text = result.toString()
+            } catch (e:Exception) {
+                Log.d("ERROR", "ERROR IS: ${e.message}")
+                binding.textViewResult.text = ""
+            }
+        }
+    }
+
+    private fun sendAnswer() {
+        if (binding.textViewInput.text.toString() != "") {
+            binding.textViewInput.text = binding.textViewResult.text
+            binding.textViewResult.text = ""
+        }
     }
 
     private fun changeSing() {
-        binding.textViewResult.text = "I don`t know how to do it"
+        binding.textViewResult.text = "in developing..."
     }
 
     private fun showHistory() {
-        binding.textViewResult.text = "I don`t know what to do"
+        binding.textViewResult.text = "in developing..."
     }
 }
