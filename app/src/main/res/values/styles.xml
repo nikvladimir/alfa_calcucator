@@ -1,12 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
-
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
-
         <item name="colorAccent">@color/white</item>
+    </style>
+
+    <style name="NumberButton">
+        <item name="android:textSize">31sp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="ActionButton">
+        <item name="android:textSize">31sp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">#65A34E</item>
+    </style>
+
+    <style name="LinearLayoutButtons">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">horizontal</item>
     </style>
 
     <style name="MenuButton">
