@@ -11,13 +11,13 @@
     <TextView
         android:id="@+id/text_view_input"
         android:layout_width="match_parent"
-        android:layout_height="180sp"
+        android:layout_height="160sp"
         android:ellipsize="start"
         android:gravity="center|end"
         android:singleLine="true"
         android:text=""
         android:textColor="@color/white"
-        android:textSize="53sp" />
+        android:textSize="@dimen/input_text_size" />
 
     <TextView
         android:id="@+id/text_view_result"
@@ -206,8 +206,11 @@
 
             <Button
                 android:id="@+id/btn_equal"
+                style="@style/ActionButton"
                 android:text="="
-                style="@style/ActionButton">
+                android:background="@drawable/button_equal"
+                android:textColor="@color/white"
+                >
             </Button>
         </LinearLayout>
     </LinearLayout>

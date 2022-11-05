@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <style name="MyAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/white</item>
         <item name="colorPrimaryDark">@color/black</item>
@@ -8,18 +9,22 @@
     </style>
 
     <style name="NumberButton">
-        <item name="android:textSize">31sp</item>
+        <item name="android:textSize">@dimen/btnSize</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
+        <item name="android:background">@drawable/button_round</item>
         <item name="android:layout_weight">1</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
     <style name="ActionButton">
-        <item name="android:textSize">31sp</item>
+        <item name="android:textSize">@dimen/btnSize</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_weight">1</item>
         <item name="android:textColor">#65A34E</item>
+        <item name="android:background">@drawable/button_round</item>
+        <item name="android:layout_margin">8dp</item>
     </style>
 
     <style name="LinearLayoutButtons">
@@ -33,7 +38,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">31sp</item>
+        <item name="android:textSize">@dimen/btnSize</item>
         <item name="android:textColor">#65A34E</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
@@ -43,7 +48,7 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_weight">1</item>
-        <item name="android:textSize">31sp</item>
+        <item name="android:textSize">@dimen/btnSize</item>
         <item name="android:textColor">#ffffff</item>
         <item name="android:gravity">center</item>
         <item name="android:layout_margin">0.5dp</item>
