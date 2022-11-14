@@ -2,17 +2,23 @@ package com.example.alfa_calculator
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.alfa_calculator.databinding.ActivityMainBinding
 import net.objecthunter.exp4j.ExpressionBuilder
 
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
+    lateinit var inputView: TextView
+    lateinit var resultView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        inputView = binding.textViewInput
+        resultView = binding.textViewResult
 
         binding.btn0.setOnClickListener { actionForViewInput("0") }
         binding.btn1.setOnClickListener { actionForViewInput("1") }
@@ -34,60 +40,60 @@ class MainActivity : AppCompatActivity() {
         binding.btnPlus.setOnClickListener { actionForViewInput("+") }
 
         binding.btnHistory.setOnClickListener { showHistory() }
-        binding.btnPlusMinus.setOnClickListener { changeSing() }
+        binding.btnPlusMinus.setOnClickListener { changeSign() }
         binding.btnEqual.setOnClickListener { sendAnswer() }
         binding.btnDelete.setOnClickListener { dropLast() }
         binding.btnClear.setOnClickListener {
-            binding.textViewInput.text = ""
-            binding.textViewResult.text = ""
+            inputView.text = ""
+            resultView.text = ""
         }
 
     }
 
     private fun actionForViewInput(str: String) {
-        binding.textViewInput.append(str)
+        inputView.append(str)
         countResult()
     }
 
     private fun dropLast() {
-        if (binding.textViewInput.text.toString().isNotEmpty()) {
-            binding.textViewInput.text = binding.textViewInput.text.dropLast(1)
+        if (inputView.text.toString().isNotEmpty()) {
+            inputView.text = inputView.text.dropLast(1)
             countResult()
         }
     }
 
     private fun countResult() {
-        if (binding.textViewInput.text == "")
-            binding.textViewResult.text = ""
+        if (inputView.text.toString().isEmpty())
+            resultView.text = ""
         else {
             try {
-                val expression = ExpressionBuilder(binding.textViewInput.text.toString()).build()
+                val expression = ExpressionBuilder(inputView.text.toString()).build()
                 val result = expression.evaluate()
                 val resultInLong = result.toLong()
 
                 if (result == resultInLong.toDouble())
-                    binding.textViewResult.text = resultInLong.toString()
+                    resultView.text = resultInLong.toString()
                 else
-                    binding.textViewResult.text = result.toString()
+                    resultView.text = result.toString()
             } catch (e:Exception) {
                 Log.d("ERROR", "ERROR IS: ${e.message}")
-                binding.textViewResult.text = ""
+                resultView.text = ""
             }
         }
     }
 
     private fun sendAnswer() {
-        if (binding.textViewInput.text.toString() != "") {
-            binding.textViewInput.text = binding.textViewResult.text
-            binding.textViewResult.text = ""
+        if (inputView.text.toString().isNotEmpty()) {
+            inputView.text = resultView.text
+            resultView.text = ""
         }
     }
 
-    private fun changeSing() {
-        binding.textViewResult.text = "in developing..."
+    private fun changeSign() {
+        resultView.text = "in developing..."
     }
 
     private fun showHistory() {
-        binding.textViewResult.text = "in developing..."
+        resultView.text = "in developing..."
     }
 }

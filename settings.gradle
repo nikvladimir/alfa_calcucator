@@ -12,5 +12,5 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Alfa_calculator"
+rootProject.name = "a_calc"
 include ':app'
